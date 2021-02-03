@@ -145,7 +145,6 @@ def self.filterCountryDesc()
       "country" => result["country"],
       "parent_id" => result["parent_id"].to_i,
       "image" => result["image"],
-      "children" => childrenArray
   }
   end
 end
@@ -166,7 +165,6 @@ def self.alphabeticalASC()
       "country" => result["country"],
       "parent_id" => result["parent_id"].to_i,
       "image" => result["image"],
-      "children" => childrenArray
   }
   end
 end
@@ -187,7 +185,6 @@ def self.alphabeticalDesc()
       "country" => result["country"],
       "parent_id" => result["parent_id"].to_i,
       "image" => result["image"],
-      "children" => childrenArray
   }
   end
 end
