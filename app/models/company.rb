@@ -189,4 +189,45 @@ def self.alphabeticalDesc()
   end
 end
 
+def self.countcarsASC() 
+results = DB.exec(
+  <<-SQL
+  SELECT COUNT(car.id) as count, company.id, company.name, company.country, company.image FROM car
+  LEFT JOIN company ON company.id=car.company_id
+  GROUP BY company.id, company.name, company.country, company.image
+  ORDER BY COUNT ASC
+  SQL
+)
+
+return results.map do |result|
+  {
+    "id" => result["id"],
+    "name" => result["name"],
+    "country" => result["country"],
+    "image" => result["image"],
+    "count" => result["count"]
+  }
+end
+end
+
+def self.countcarsDESC
+results = DB.exec(
+  <<-SQL
+  SELECT COUNT(car.id) as count, company.id, company.name, company.country, company.image FROM car
+  LEFT JOIN company ON company.id=car.company_id
+  GROUP BY company.id, company.name, company.country, company.image
+  ORDER BY COUNT DESC
+  SQL
+)
+return results.map do |result|
+  {
+    "id" => result["id"],
+    "name" => result["name"],
+    "country" => result["country"],
+    "image" => result["image"],
+    "count" => result["count"]
+  }
+end
+end
+
 end
