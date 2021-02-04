@@ -1,3 +1,4 @@
+#yes
 class CarsController < ApplicationController
 
     def index
