@@ -1,4 +1,3 @@
-#yes
 class SongsController < ApplicationController
 
     def index
