@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/filter/alphabeticalASC', to:'companies#alphabeticalASC'
   get '/filter/alphabeticalDesc', to:'companies#alphabeticalDesc'
   #count cars
+  #count
   get '/filter/countcarsASC', to:'companies#countcarsASC'
   get '/filter/countcarsDESC', to:'companies#countcarsDESC'
 
