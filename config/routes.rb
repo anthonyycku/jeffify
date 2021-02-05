@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/filter/countryDesc', to:'companies#filterCountryDesc'
   get '/filter/alphabeticalASC', to:'companies#alphabeticalASC'
   get '/filter/alphabeticalDesc', to:'companies#alphabeticalDesc'
-  # 
+  #count cars
   get '/filter/countcarsASC', to:'companies#countcarsASC'
   get '/filter/countcarsDESC', to:'companies#countcarsDESC'
 
