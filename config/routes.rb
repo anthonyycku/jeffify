@@ -8,6 +8,4 @@ Rails.application.routes.draw do
   get '/albums', to:'albums#index'
   get '/find/:id', to:'albums#find'
 
-  #Resources
-  resources :audios, only: :show
 end

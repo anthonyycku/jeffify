@@ -409,3 +409,36 @@ FOREIGN KEY ("blob_id")
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[36mActiveStorage::Blob Update (0.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
   [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2021-02-06 15:49:36 -0500
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/anthonyku/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/anthonyku/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 402)
+Completed 200 OK in 35ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 3429)
+
+
+Started GET "/songs/1" for ::1 at 2021-02-06 15:49:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/songs/1"):
+  
+Started GET "/specific/1" for ::1 at 2021-02-06 15:49:52 -0500
+Processing by SongsController#specific as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 50ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1676)
+
+
+Started GET "/specific/2" for ::1 at 2021-02-06 15:49:55 -0500
+Processing by SongsController#specific as HTML
+  Parameters: {"id"=>"2"}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 92)
+
+
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (27.9ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Yesterday"], ["artist", "beetles"], ["created_at", "2021-02-06 21:12:59.429474"], ["updated_at", "2021-02-06 21:12:59.429474"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (16.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (4.9ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "nice"], ["artist", "ak"], ["created_at", "2021-02-06 21:17:53.649140"], ["updated_at", "2021-02-06 21:17:53.649140"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (2.4ms)[0m  [1m[32mINSERT INTO "songs" ("name", "artist", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "aaa"], ["artist", "bbbbb"], ["created_at", "2021-02-06 21:22:57.906482"], ["updated_at", "2021-02-06 21:22:57.906482"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
