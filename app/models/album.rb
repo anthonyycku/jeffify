@@ -12,6 +12,7 @@ class Album
             SELECT 
             albums.name as "albumName",
             albums.artist as "albumArtist",
+            albums.image as "albumImage",
             albums.id as "albumID"
             FROM albums
           SQL
@@ -20,7 +21,8 @@ class Album
         {
             "id" => result["albumID"].to_i,
             "artist" => result["albumArtist"],
-            "name" => result["albumName"]
+            "name" => result["albumName"],
+            "image" => result["albumImage"]
         }
       end
     end
