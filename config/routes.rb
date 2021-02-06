@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   # Albums
   get '/albums', to:'albums#index'
-  get '/findalbum/:id', to:'albums#find'
+  get '/find/:id', to:'albums#find'
 
 end
