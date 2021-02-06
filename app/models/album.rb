@@ -6,7 +6,7 @@ class Album
         DB = PG.connect(host: "localhost", port: 5432, dbname: 'jeffify_development')
       end
 
-    self.allAlbums
+    def self.all
       results = DB.exec(
           <<-SQL
             SELECT 

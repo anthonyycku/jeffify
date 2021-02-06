@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
-    def allAlbums
-        render json: Album.allAlbums
+    def index
+        render json: Album.all
     end
 
 end

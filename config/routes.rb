@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get '/songs', to: 'songs#index'
 
   # Albums
-  get '/allalbums', to:'albums#allAlbums'
+  get '/albums', to:'albums#index'
 
 end
