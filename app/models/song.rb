@@ -16,7 +16,8 @@ class Song
           {
 
             "id" => result["id"].to_i,
-            "name" => result["name"]
+            "name" => result["name"],
+            "artist" => result["artist"]
           }
         end
       end
