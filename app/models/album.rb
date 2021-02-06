@@ -27,7 +27,7 @@ class Album
       end
     end
 
-    def find(id)
+    def self.find(id)
       results = DB.exec(
         <<-SQL
           SELECT * FROM albums
