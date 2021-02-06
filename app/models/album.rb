@@ -36,10 +36,10 @@ class Album
       )
     return results.map do |result|
       {
-        "id" => results["id"].to_i,
-        "name" => results["name"],
-        "artist" => results["artist"],
-        "image" => results["image"]
+        "id" => result["id"].to_i,
+        "name" => result["name"],
+        "artist" => result["artist"],
+        "image" => result["image"]
       }
       end
     end
