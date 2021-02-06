@@ -17,10 +17,27 @@ class Song
 
             "id" => result["id"].to_i,
             "name" => result["name"],
+            "artist" => result["artist"],
+            "album_id" => result["album_id"]
+          }
+        end
+      end
+      
+      def self.specific(id)
+        results = DB.exec(
+          <<-SQL
+          SELECT songs.* FROM songs
+          LEFT JOIN albums
+          ON songs.album_id=albums.id
+          WHERE album_id=#{id}
+          SQL
+        )
+        return results.map do |result|
+          {
+            "name" => result["name"],
             "artist" => result["artist"]
           }
         end
       end
- 
 
 end

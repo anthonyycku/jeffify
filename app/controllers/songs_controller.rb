@@ -4,4 +4,7 @@ class SongsController < ApplicationController
         render json: Song.all
     end
 
+    def specific
+        render json: Song.specific(params["id"])
+    end
 end
