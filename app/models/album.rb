@@ -35,13 +35,10 @@ class Album
         SQL
       )
       result = results.first
-    return 
-      {
-        "id" => result["id"].to_i,
+    return {
         "name" => result["name"],
         "artist" => result["artist"],
         "image" => result["image"]
       }
-      end
     end
 end
