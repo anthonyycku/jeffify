@@ -31,7 +31,7 @@ class Album
       results = DB.exec(
         <<-SQL
           SELECT * FROM albums
-          WHERE id=#{id}
+          WHERE id=#{id.to_i}
         SQL
       )
     return results.map do |result|
