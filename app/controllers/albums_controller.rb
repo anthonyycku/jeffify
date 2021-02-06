@@ -4,4 +4,8 @@ class AlbumsController < ApplicationController
         render json: Album.all
     end
 
+    def allAlbums
+        render json. Album.allAlbums()
+    end
+
 end
