@@ -28,8 +28,7 @@ class Song
           <<-SQL
           SELECT
           songs.name as "songName",
-          songs.artist as "songArtist",
-          albums.name as "albumName"
+          songs.artist as "songArtist"
           FROM songs
           LEFT JOIN albums
           ON songs.album_id=albums.id
@@ -39,8 +38,7 @@ class Song
         return results.map do |result|
           {
             "name" => result["songName"],
-            "artist" => result["songArtist"],
-            "album" => result["albumName"]
+            "artist" => result["songArtist"]
           }
         end
       end

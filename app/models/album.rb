@@ -27,4 +27,19 @@ class Album
       end
     end
 
+    def findAlbum(id)
+      results = DB.exec(
+        <<-SQL
+          SELECT * FROM albums
+          WHERE id=#{id}
+        SQL
+    )
+    return results.map do |result|
+      {
+        "name" => results["name"],
+        "artist" => results["artist"],
+        "image" => results["image"]
+      }
+    end
+    end
 end
