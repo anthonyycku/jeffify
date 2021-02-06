@@ -37,7 +37,6 @@ class Song
         )
         return results.map do |result|
           {
-            "id" => result["id"],
             "name" => result["songName"],
             "artist" => result["songArtist"]
           }
