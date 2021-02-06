@@ -34,7 +34,8 @@ class Album
           WHERE id=#{id}
         SQL
       )
-    return results.map do |result|
+      result = results.first
+    return 
       {
         "id" => result["id"].to_i,
         "name" => result["name"],
