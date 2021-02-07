@@ -6,12 +6,12 @@ class Song < ApplicationRecord
         DB = PG.connect(host: "localhost", port: 5432, dbname: 'jeffify_development')
       end
 
-      has_one_attached :audio
-
     def self.all
         results = DB.exec(
         <<-SQL    
-        SELECT * FROM songs
+        SELECT songs.*,
+        artists.name as "artistName"
+        FROM songs ON songs.artist_id=artists.id
         SQL
         )
         return results.map do |result|
@@ -19,7 +19,7 @@ class Song < ApplicationRecord
 
             "id" => result["id"].to_i,
             "name" => result["name"],
-            "artist" => result["artist"],
+            "artist" => result["artistName"],
             "album_id" => result["album_id"]
           }
         end
@@ -29,18 +29,18 @@ class Song < ApplicationRecord
         results = DB.exec(
           <<-SQL
           SELECT
-          songs.name as "songName",
-          songs.artist as "songArtist"
+          songs.name as "songName"
           FROM songs
           LEFT JOIN albums
           ON songs.album_id=albums.id
+          LEFT JOIN artists
+          ON artists.id=songs.artist_id
           WHERE album_id=#{id}
           SQL
         )
         return results.map do |result|
           {
-            "name" => result["songName"],
-            "artist" => result["songArtist"]
+            "name" => result["songName"]
           }
         end
       end

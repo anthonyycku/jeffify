@@ -38,7 +38,8 @@ class Album < ApplicationRecord
     return {
         "name" => result["name"],
         "artist" => result["artist"],
-        "image" => result["image"]
+        "image" => result["image"],
+        "year" => result["year"]
       }
     end
 end
