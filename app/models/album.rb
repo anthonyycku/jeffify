@@ -32,14 +32,18 @@ class Album < ApplicationRecord
     def self.find(id)
       results = DB.exec(
         <<-SQL
-          SELECT * FROM albums
-          WHERE id=#{id}
+          SELECT albums.*,
+          artists.name as "artistName"
+          FROM albums
+          LEFT JOIN artists
+          ON albums.artist_id=artist.id
+          WHERE albums.id=#{id}
         SQL
       )
       result = results.first
     return {
         "name" => result["name"],
-        "artist" => result["artist"],
+        "artist" => result["artistName"],
         "image" => result["image"],
         "year" => result["year"]
       }
