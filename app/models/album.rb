@@ -36,7 +36,7 @@ class Album < ApplicationRecord
           artists.name as "artistName"
           FROM albums
           LEFT JOIN artists
-          ON albums.artist_id=artist.id
+          ON albums.artist_id=artists.id
           WHERE albums.id=#{id}
         SQL
       )
