@@ -48,4 +48,21 @@ class Album < ApplicationRecord
         "year" => result["year"]
       }
     end
+
+    def self.getSpecificAlbum(id)
+      results = DB.exec(
+        <<-SQL
+        SELECT songs.audio FROM songs
+        LEFT JOIN albums
+        ON albums.id=songs.album_id
+        WHERE albums.id=#{id}
+        SQL
+      )
+
+      return results.map do |result|
+        
+      end
+
+      
+    end
 end

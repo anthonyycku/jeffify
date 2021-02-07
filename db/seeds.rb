@@ -56,7 +56,7 @@ VALUES
 ('Dying in LA', 9, 12, 'https://jeffify.s3.amazonaws.com/PATD/prayforthewicked/dyinginla.mp3'),
 ('High hopes', 9, 12, 'https://jeffify.s3.amazonaws.com/PATD/prayforthewicked/highhopes.mp3'),
 ('Say Amen', 9, 12, 'https://jeffify.s3.amazonaws.com/PATD/prayforthewicked/sayamen.mp3'),
-('Im not the only one', 10, 13, 'https://jeffify.s3.amazonaws.com/PATD/prayforthewicked/sayamen.mp3'),
+('Im not the only one', 10, 13, 'https://jeffify.s3.amazonaws.com/samsmith/inthelonelyhour/imnottheonlyone.mp3'),
 ('Lay me down', 10, 13, 'https://jeffify.s3.amazonaws.com/samsmith/inthelonelyhour/laymedown.mp3'),
 ('Stay with me', 10, 13, 'https://jeffify.s3.amazonaws.com/samsmith/inthelonelyhour/staywithme.mp3'),
 ('Too good at goodbyes', 10, 14, 'https://jeffify.s3.amazonaws.com/samsmith/thethrillofitall/toogoodatgoodbyes.mp3'),

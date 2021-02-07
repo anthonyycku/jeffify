@@ -33,7 +33,10 @@ class Song < ApplicationRecord
           <<-SQL
           SELECT
           songs.name as "songName",
-          songs.audio
+          songs.audio,
+          albums.name as "albumName",
+          albums.image,
+          artists.name as "artistName"
           FROM songs
           LEFT JOIN albums
           ON songs.album_id=albums.id
@@ -45,7 +48,10 @@ class Song < ApplicationRecord
         return results.map do |result|
           {
             "name" => result["songName"],
-            "audio"=>result["audio"]
+            "audio"=>result["audio"],
+            "album" => result["albumName"],
+            "albumImage" => result["albumImage"],
+            "artist" => result["artistName"]
           }
         end
       end
