@@ -50,7 +50,7 @@ class Song < ApplicationRecord
             "name" => result["songName"],
             "audio"=>result["audio"],
             "album" => result["albumName"],
-            "albumImage" => result["albumImage"],
+            "albumImage" => result["image"],
             "artist" => result["artistName"]
           }
         end

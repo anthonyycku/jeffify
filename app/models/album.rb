@@ -60,9 +60,8 @@ class Album < ApplicationRecord
       )
 
       return results.map do |result|
-        
-      end
 
-      
+      end
     end
+    
 end
