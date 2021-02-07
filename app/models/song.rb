@@ -22,7 +22,8 @@ class Song < ApplicationRecord
             "id" => result["id"].to_i,
             "name" => result["name"],
             "artist" => result["artistName"],
-            "album_id" => result["album_id"]
+            "album_id" => result["album_id"],
+            "audio" => result["audio"]
           }
         end
       end
