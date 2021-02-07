@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # Albums
   get '/albums', to:'albums#index'
   get '/albums/:id', to:'albums#find'
-  get '/queue/:id', to'albums#queue'
+  get '/queue/:id', to: 'albums#queue'
 
 end

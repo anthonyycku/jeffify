@@ -58,10 +58,10 @@ class Album < ApplicationRecord
         WHERE albums.id=#{id}
         SQL
       )
-
       return results.map do |result|
         "audio" => result["audio"]
       end
+      
     end
 
 end
