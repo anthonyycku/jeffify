@@ -49,7 +49,7 @@ class Album < ApplicationRecord
       }
     end
 
-    def self.getSpecificAlbum(id)
+    def self.albumqueue(id)
       results = DB.exec(
         <<-SQL
         SELECT songs.audio FROM songs
@@ -60,8 +60,8 @@ class Album < ApplicationRecord
       )
 
       return results.map do |result|
-
+        "audio" => result["audio"]
       end
     end
-    
+
 end

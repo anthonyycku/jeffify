@@ -7,4 +7,8 @@ class AlbumsController < ApplicationController
     def find
         render json: Album.find(params["id"])
     end
+
+    def queue 
+        render json: Album.albumqueue(params["id"])
+    end
 end
