@@ -11,10 +11,12 @@ class Album < ApplicationRecord
           <<-SQL
             SELECT 
             albums.name as "albumName",
-            albums.artist as "albumArtist",
             albums.image as "albumImage",
-            albums.id as "albumID"
+            albums.id as "albumID",
+            artists.name as "albumArtist"
             FROM albums
+            LEFT JOIN artists
+            ON artists.id = albums.artist_id
           SQL
       )
       return results.map do |result|

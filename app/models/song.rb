@@ -11,7 +11,9 @@ class Song < ApplicationRecord
         <<-SQL    
         SELECT songs.*,
         artists.name as "artistName"
-        FROM songs ON songs.artist_id=artists.id
+        FROM songs
+        INNER JOIN artists
+        ON songs.artist_id=artists.id
         SQL
         )
         return results.map do |result|
