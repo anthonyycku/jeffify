@@ -60,7 +60,7 @@ class Album < ApplicationRecord
         LEFT JOIN albums
         ON albums.id=songs.album_id
         LEFT JOIN artists
-        ON albums.id=artists.album_id
+        ON songs.artist_id=artists.id
         WHERE albums.id=#{id}
         SQL
       )
