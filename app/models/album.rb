@@ -52,7 +52,9 @@ class Album < ApplicationRecord
     def self.queue(id)
       results = DB.exec(
         <<-SQL
-        SELECT songs.audio FROM songs
+        SELECT songs.audio,
+        albums.name as albumName
+        FROM songs
         LEFT JOIN albums
         ON albums.id=songs.album_id
         WHERE albums.id=#{id}
@@ -60,6 +62,7 @@ class Album < ApplicationRecord
       )
       return results.map do |result|
         {
+          "album" => result["albumName"]
         "audio" => result["audio"]
       }
       end
