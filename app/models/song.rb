@@ -47,10 +47,10 @@ class Song < ApplicationRecord
         )
         return results.map do |result|
           {
-            "name" => result["songName"],
+            "song" => result["songName"],
             "audio"=>result["audio"],
             "album" => result["albumName"],
-            "albumImage" => result["image"],
+            "image" => result["image"],
             "artist" => result["artistName"]
           }
         end
