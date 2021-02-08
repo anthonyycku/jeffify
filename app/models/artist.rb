@@ -29,6 +29,7 @@ class Artist < ApplicationRecord
             FROM songs
             INNER JOIN artists
             ON songs.artist_id=artists.id
+            WHERE artists.id=#{id}
             SQL
         )
         return results.map do |result|
