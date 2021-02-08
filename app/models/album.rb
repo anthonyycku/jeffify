@@ -13,6 +13,7 @@ class Album < ApplicationRecord
             albums.name as "albumName",
             albums.image as "albumImage",
             albums.id as "albumID",
+            artists.id as "artistID",
             artists.name as "albumArtist"
             FROM albums
             LEFT JOIN artists
@@ -24,7 +25,8 @@ class Album < ApplicationRecord
             "id" => result["albumID"].to_i,
             "artist" => result["albumArtist"],
             "name" => result["albumName"],
-            "image" => result["albumImage"]
+            "image" => result["albumImage"],
+            "artistID" => result["artistID"].to_i
         }
       end
     end
