@@ -25,7 +25,9 @@ class Artist < ApplicationRecord
       def self.getall(id)
         results = DB.exec(
             <<-SQL
-            SELECT songs.*
+            SELECT
+            songs.name as "name",
+            songs.audio as "audio"
             FROM songs
             INNER JOIN artists
             ON songs.artist_id=artists.id
