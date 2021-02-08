@@ -53,17 +53,24 @@ class Album < ApplicationRecord
       results = DB.exec(
         <<-SQL
         SELECT songs.audio,
-        albums.name as albumName
+        albums.name as "albumName",
+        albums.image as "albumImage",
+        artists.name as "artistName"
         FROM songs
         LEFT JOIN albums
         ON albums.id=songs.album_id
+        LEFT JOIN artists
+        ON albums.id=artists.album_id
         WHERE albums.id=#{id}
         SQL
       )
       return results.map do |result|
         {
-          "album" => result["albumName"]
-        "audio" => result["audio"]
+          "album" => result["albumName"],
+          "image" => result["albumImage"],
+          "artist" => result["artistName"],
+        "audio" => result["audio"],
+
       }
       end
 
