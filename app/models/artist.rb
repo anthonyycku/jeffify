@@ -21,4 +21,21 @@ class Artist < ApplicationRecord
             "image" => results.first["artistImage"]
         }
       end
+
+      def self.getAllSongs(id)
+        results = DB.exec(
+            <<-SQL
+            SELECT songs.*
+            FROM songs
+            INNER JOIN artists
+            ON songs.artist_id=artists.id
+            SQL
+        )
+        return results.map do |result|
+            {
+                "name" => result["name"],
+                "audio" => result["audio"]
+            }
+        end
+      end
 end
