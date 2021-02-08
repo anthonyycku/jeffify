@@ -22,7 +22,7 @@ class Artist < ApplicationRecord
         }
       end
 
-      def self.getAllSongs(id)
+      def self.getall(id)
         results = DB.exec(
             <<-SQL
             SELECT songs.*
