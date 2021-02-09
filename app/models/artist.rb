@@ -52,5 +52,20 @@ class Artist
             }
         end
     end
+
+    def self.artistsearch
+      results=DB.exec(
+        <<-SQL
+          SELECT * FROM artists
+        SQL
+      )
+      return results.map do |result|
+        {
+          "id"=>result["id"],
+          "artist"=>result["name"],
+          "image"=>result["image"]
+        }
+      end
+    end
 end
 

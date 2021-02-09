@@ -7,4 +7,8 @@ class ArtistsController < ApplicationController
     def allsongs
         render json: Artist.allsongs(params["id"])
     end
+
+    def artistsearch
+        render json: Artist.artistsearch()
+    end
 end
