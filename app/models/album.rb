@@ -44,7 +44,7 @@ class Album < ApplicationRecord
       )
       result = results.first
     return {
-        "id" => result["name"],
+        "id" => result["id"],
         "name" => result["name"],
         "artist" => result["artistName"],
         "image" => result["image"],
