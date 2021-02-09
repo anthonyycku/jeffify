@@ -1,10 +1,10 @@
 class ArtistsController < ApplicationController
 
-def find
-    render json: Artist.find(params["id"])
-end
+    def find
+     render json: Artist.find(params["id"])
+    end
 
-def getall
-    render json: Artist.getall(params["id"])
-end
+    def allsongs
+        render json: Artist.allsongs(params["id"])
+    end
 end

@@ -1,20 +1,20 @@
 class Artist < ApplicationRecord
-    if(ENV['DATABASE_URL'])
+    if (ENV['DATABASE_URL'])
         uri = URI.parse(ENV['DATABASE_URL'])
         DB = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
-      else
+        else
         DB = PG.connect(host: "localhost", port: 5432, dbname: 'jeffify_development')
-      end
+        end
 
-      def self.find(id)
-        results = DB.exec(
-            <<-SQL
-                SELECT
-                artists.name as "artistName",
-                artists.image as "artistImage"
-                FROM artists
-                WHERE id=#{id}
-            SQL
+    def self.find(id)
+    results = DB.exec(
+        <<-SQL
+        SELECT
+        artists.name as "artistName",
+        artists.image as "artistImage"
+        FROM artists
+        WHERE id=#{id}
+        SQL
         )
         return {
             "name" => results.first["artistName"],
@@ -22,22 +22,22 @@ class Artist < ApplicationRecord
         }
       end
 
-      def self.getall(id)
+      def self.allsongs(id)
         results = DB.exec(
-            <<-SQL
-            SELECT
-            songs.name as "songName",
-            songs.audio as "audio",
-            albums.name as "albumName",
-            albums.image as "albumImage",
-            artists.name as "artistName"
-            FROM songs
-            INNER JOIN artists
-            ON songs.artist_id=artists.id
-            INNER JOIN albums
-            ON albums.id=songs.album_id
-            WHERE artists.id=#{id}
-            SQL
+        <<-SQL
+        SELECT
+        songs.name as "songName",
+        songs.audio as "audio",
+        albums.name as "albumName",
+        albums.image as "albumImage",
+        artists.name as "artistName"
+        FROM songs
+        INNER JOIN artists
+        ON songs.artist_id=artists.id
+        INNER JOIN albums
+        ON albums.id=songs.album_id
+        WHERE artists.id=#{id}
+        SQL
         )
         return results.map do |result|
             {
@@ -48,5 +48,6 @@ class Artist < ApplicationRecord
                 "artist" => result["artistName"]
             }
         end
-      end
+    end
 end
+

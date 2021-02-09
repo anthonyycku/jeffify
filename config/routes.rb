@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get '/queue/:id', to: 'albums#queue'
 
   #Artist
-  get '/artistsongs/:id', to:'artists#getall'
+  get '/artistsongs/:id', to:'artists#allsongs'
   get '/artists/:id', to:'artists#find'
 end
