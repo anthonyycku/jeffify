@@ -11,7 +11,7 @@ class Artist
         <<-SQL
         SELECT
         artists.name as "artistName",
-        artists.image as "artistImage"
+        artists.image as "artistImage",
         FROM artists
         WHERE id=#{id}
         SQL
@@ -30,6 +30,7 @@ class Artist
         songs.audio as "audio",
         albums.name as "albumName",
         albums.image as "albumImage",
+        albums.year as "albumYear",
         artists.name as "artistName"
         FROM songs
         INNER JOIN artists
@@ -45,7 +46,8 @@ class Artist
                 "audio" => result["audio"],
                 "album" => result["albumName"],
                 "image" => result["albumImage"],
-                "artist" => result["artistName"]
+                "artist" => result["artistName"],
+                "year" => result["albumYear"]
             }
         end
     end
