@@ -78,4 +78,23 @@ class Album < ApplicationRecord
 
     end
 
+    def self.findAlbum(id)
+      results = DB.exec(
+        <<-SQL
+        SELECT albums.* FROM albums
+        LEFT JOIN artists
+        ON albums.artist_id=artists.id
+        WHERE artists.id=#{id}
+        SQL
+      )
+      return results.map do |result|
+        {
+          "id" => result["id"].to_i,
+          "name" => result["name"],
+          "image" => result["image"],
+          "artistID" => result["artist_id"]
+        }
+      end
+    end
+
 end

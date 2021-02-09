@@ -11,4 +11,8 @@ class AlbumsController < ApplicationController
     def queue 
         render json: Album.queue(params["id"])
     end
+
+    def findAlbum
+       render json: Album.findAlbum(params["id"]) 
+    end
 end
