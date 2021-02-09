@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Songs
   get '/songs', to: 'songs#index'
   get '/songs/:id', to: 'songs#specific'
+  get '/songsearch', to: 'songs#songsearch'
 
   # Albums
   get '/albums', to:'albums#index'
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   #Artist
   get '/artistsongs/:id', to:'artists#allsongs'
   get '/artists/:id', to:'artists#find'
+
 end

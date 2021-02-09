@@ -56,4 +56,29 @@ class Song < ApplicationRecord
         end
       end
 
+      def self.songsearch
+        results = DB.exec(
+          <<-SQL
+          SELECT
+          songs.name as "songName",
+          songs.audio as "songAudio",
+          albums.name as "albumName",
+          albums.image as "albumImage",
+          artists.name as "artistName"
+          FROM songs
+          LEFT JOIN albums ON albums.id=songs.album_id
+          LEFT JOIN artists ON artists.id=songs.artist_id
+          SQL
+        )
+        return results.map do |result|
+          {
+            "song" => result["songName"],
+            "audio" => result["songAudio"],
+            "album" => result["albumName"],
+            "image" => result["albumImage"],
+            "artist" => result["artistName"]
+          }
+        end
+      end
+
 end
