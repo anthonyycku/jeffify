@@ -9,6 +9,6 @@ class SongsController < ApplicationController
     end
 
     def songsearch
-        render json: Song.songsearch(params["id"])
+        render json: Song.songsearch
     end
 end
