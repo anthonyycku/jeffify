@@ -18,8 +18,8 @@ class Album < ApplicationRecord
             FROM albums
             LEFT JOIN artists
             ON artists.id = albums.artist_id
-            ORDER BY albums.name='Death of a Bachelor',
-            albums.name='Overexposed', id ASC
+            ORDER BY albums.name='Death of a Bachelor' DESC,
+            albums.name='Overexposed' DESC, albums.id DESC
           SQL
       )
       return results.map do |result|
