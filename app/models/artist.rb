@@ -26,18 +26,26 @@ class Artist < ApplicationRecord
         results = DB.exec(
             <<-SQL
             SELECT
-            songs.name as "name",
-            songs.audio as "audio"
+            songs.name as "songName",
+            songs.audio as "audio",
+            albums.name as "albumName",
+            albums.image as "albumImage",
+            artists.name as "artistName"
             FROM songs
             INNER JOIN artists
             ON songs.artist_id=artists.id
+            INNER JOIN albums
+            ON albums.id=songs.album_id
             WHERE artists.id=#{id}
             SQL
         )
         return results.map do |result|
             {
                 "name" => result["name"],
-                "audio" => result["audio"]
+                "audio" => result["audio"],
+                "album" => result["albumName"],
+                "image" => result["albumImage"],
+                "artist" => result["artistName"]
             }
         end
       end
