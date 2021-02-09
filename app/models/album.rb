@@ -35,7 +35,8 @@ class Album < ApplicationRecord
       results = DB.exec(
         <<-SQL
           SELECT albums.*,
-          artists.name as "artistName"
+          artists.name as "artistName",
+          artists.id as "artistID"
           FROM albums
           LEFT JOIN artists
           ON albums.artist_id=artists.id
@@ -44,7 +45,7 @@ class Album < ApplicationRecord
       )
       result = results.first
     return {
-        "id" => result["id"].to_i,
+        "id" => result["artistID"].to_i,
         "name" => result["name"],
         "artist" => result["artistName"],
         "image" => result["image"],
