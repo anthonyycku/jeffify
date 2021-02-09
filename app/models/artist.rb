@@ -11,7 +11,7 @@ class Artist
         <<-SQL
         SELECT
         artists.name as "artistName",
-        artists.image as "artistImage",
+        artists.image as "artistImage"
         FROM artists
         WHERE id=#{id}
         SQL
@@ -34,9 +34,9 @@ class Artist
         albums.year as "albumYear",
         artists.name as "artistName"
         FROM songs
-        INNER JOIN artists
+        LEFT JOIN artists
         ON songs.artist_id=artists.id
-        INNER JOIN albums
+        LEFT JOIN albums
         ON albums.id=songs.album_id
         WHERE artists.id=#{id}
         SQL
