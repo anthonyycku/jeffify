@@ -22,6 +22,7 @@ class Artist
         }
       end
 
+      # ALL
       def self.allsongs(id)
         results = DB.exec(
         <<-SQL
