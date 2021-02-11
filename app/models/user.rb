@@ -1,6 +1,6 @@
 class User
 
-    def index
+    def self.index
         results = DB.exec(
             <<-SQL
             SELECT * FROM users
@@ -14,7 +14,7 @@ class User
         end
     end
 
-    def create(username, password)
+    def self.create(username, password)
         results = DB.exec(
             <<-SQL
             INSERT INTO users (username, password)
