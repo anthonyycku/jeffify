@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   get '/artists/:id', to:'artists#find'
   get '/artistsearch', to:'artists#artistsearch'
 
-
 end
