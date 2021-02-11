@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/artistsearch', to:'artists#artistsearch'
 
   #Users
-  post '/users/:username/:password', to:'accounts#create'
-  get '/users', to:'accounts#index'
+  get '/accounts', to:'accounts#index'
+  post '/accounts/:username/:password', to:'accounts#create'
+
 end
