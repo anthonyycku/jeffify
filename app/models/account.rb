@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Account < ApplicationRecord
 
     def self.index
         results = DB.exec(
