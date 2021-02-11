@@ -20,11 +20,11 @@ class Account < ApplicationRecord
         end
     end
 
-    def self.create(username, password)
+    def self.create(opts)
         results = DB.exec(
             <<-SQL
             INSERT INTO users (username, password)
-            VALUES ('#{username}','#{password}')
+            VALUES ('#{opts["username"]}','#{opts["password"]}')
             SQL
         )
         return {

@@ -5,6 +5,6 @@ class AccountsController < ApplicationController
     end
 
     def create
-        render json: Account.create(params["username"], params["password"])
+        render json: Account.create(params["account"])
     end
 end

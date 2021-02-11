@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   #Users
   get '/accounts', to:'accounts#index'
-  post '/accounts/:username/:password', to:'accounts#create'
+  post '/accounts', to:'accounts#create'
 
 end
