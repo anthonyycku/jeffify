@@ -14,7 +14,7 @@ class User
         end
     end
 
-    def create(user, password)
+    def create(username, password)
         results = DB.exec(
             <<-SQL
             INSERT INTO users (username, password)
