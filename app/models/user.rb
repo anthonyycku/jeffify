@@ -1,4 +1,4 @@
-class User
+class User < ApplicationRecord
 
     def self.index
         results = DB.exec(
@@ -26,5 +26,4 @@ class User
             "password" => results.first["password"]
         }
     end
-    #
 end
