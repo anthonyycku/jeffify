@@ -17,15 +17,4 @@ Rails.application.routes.draw do
   get '/artistsearch', to:'artists#artistsearch'
 
 
-  #Users
-  post '/users', to: 'users#create'
-  get '/users/:user_id', to: 'users#show'
-  get '/users', to: 'users#index'
-
-  #Login
-  post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-  get '/logged_in', to: 'sessions#is_logged_in?'
-
-
 end
