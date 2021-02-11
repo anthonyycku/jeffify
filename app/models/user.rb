@@ -26,4 +26,5 @@ class User
             "password" => results.first["password"]
         }
     end
+    #
 end
