@@ -6,6 +6,19 @@ class Playlist < ApplicationRecord
         DB = PG.connect(host: "localhost", port: 5432, dbname: 'jeffify_development')
       end
 
+      def self.index
+        results = DB.exec(
+            <<-SQL
+                SELECT * FROM playlists
+            SQL
+        )
+        return {
+            "id" => results.first["id"].to_i,
+            "name" => results.first["name"],
+            "user_id" => results.first["user_id"].to_i
+        }
+      end
+
       def self.create(opts)
         results = DB.exec(
             <<-SQL
