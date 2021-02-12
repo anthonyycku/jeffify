@@ -40,6 +40,7 @@ class Playlist < ApplicationRecord
         results = DB.exec(
             <<-SQL
                 SELECT
+                playlists.id as "playlistID",
                 playlists.name as "playlistName",
                 users.username as "user_name"
                 FROM playlists
@@ -50,6 +51,7 @@ class Playlist < ApplicationRecord
         )
         return results.map do |result|
             {
+                "id" => result["playlistID"].to_i,
                 "user" => result["user_name"],
                 "playlistName" => result["playlistName"]
             }
