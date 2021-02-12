@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   post '/accounts', to:'accounts#create'
 
   #Playlists
-  post "/playlists", to:'playlists#create'
+  post '/playlists', to:'playlists#create'
 
 end
