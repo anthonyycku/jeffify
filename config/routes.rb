@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   get '/accounts/recent', to:'accounts#getrecent'
   post '/accounts', to:'accounts#create'
 
+  #Playlists
+  post "/playlists", to:'playlists#create'
+
 end
