@@ -33,4 +33,17 @@ class Account < ApplicationRecord
             "password" => results.first["password"]
         }
     end
+
+    def self.getrecent
+        results = DB.exec(
+            <<-SQL
+            SELECT * FROM users
+            ORDER BY id DESC
+            SQL
+        )
+        return {
+            "id" => results.first["id"],
+            "username" => results.first["username"]
+        }
+    end
 end

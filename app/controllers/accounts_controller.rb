@@ -7,4 +7,8 @@ class AccountsController < ApplicationController
     def create
         render json: Account.create(params["account"])
     end
+
+    def getrecent
+        render json: Account.getrecent
+    end
 end

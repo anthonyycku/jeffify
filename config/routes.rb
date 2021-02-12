@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   #Users
   get '/accounts', to:'accounts#index'
+  get '/accounts/recent', to:'accounts#getrecent'
   post '/accounts', to:'accounts#create'
 
 end
