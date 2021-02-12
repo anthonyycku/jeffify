@@ -41,7 +41,7 @@ class Playlist < ApplicationRecord
             <<-SQL
                 SELECT
                 playlists.name as "playlistName",
-                users.name as "user_name"
+                users.username as "user_name"
                 FROM playlists
                 LEFT JOIN users
                 ON playlists.user_id=users.id
