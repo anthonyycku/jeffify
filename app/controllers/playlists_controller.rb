@@ -8,4 +8,7 @@ class PlaylistsController < ApplicationController
         render json: Playlist.index
     end
 
+    def specific
+        render json: Playlist.specific(params["id"])
+    end
 end

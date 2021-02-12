@@ -35,4 +35,24 @@ class Playlist < ApplicationRecord
             "user_id" => results.first["user_id"].to_i
         }
       end
+
+      def self.specific(id)
+        results = DB.exec(
+            <<-SQL
+                SELECT
+                playlists.name as "playlistName",
+                users.name as "user_name"
+                FROM playlists
+                LEFT JOIN users
+                ON playlists.user_id=users.id
+                WHERE users.id=#{id}
+            SQL
+        )
+        return results.map do |result|
+            {
+                "user" => result["user_name"],
+                "playlistName" => result["playlistName"]
+            }
+        end
+      end
 end

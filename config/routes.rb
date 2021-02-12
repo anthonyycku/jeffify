@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   #Playlists
   post '/playlists', to:'playlists#create'
   get '/playlists', to:'playlists#index'
+  get '/user_playlists/:id', to:'playlists#specific'
 
 end
