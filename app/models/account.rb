@@ -14,7 +14,7 @@ class Account < ApplicationRecord
         )
         return results.map do |result|
             {
-                "id"=> result["id"],
+                "id"=> result["id"].to_i,
                 "username" => result["username"],
                 "password" => result["password"]
             }
@@ -30,7 +30,7 @@ class Account < ApplicationRecord
             SQL
         )
         return {
-            "id"=>results.first["id"],
+            "id"=>results.first["id"].to_i,
             "username" => results.first["username"]
         }
     end
@@ -43,7 +43,7 @@ class Account < ApplicationRecord
             SQL
         )
         return {
-            "id" => results.first["id"],
+            "id" => results.first["id"].to_i,
             "username" => results.first["username"]
         }
     end
