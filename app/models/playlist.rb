@@ -11,7 +11,7 @@ class Playlist
             <<-SQL
                 INSERT INTO playlists (name, user_id)
                 VALUES ('opts["name"]', opts["user_id"])
-                RETURNING name, user_id
+                RETURNING id, name, user_id
             SQL
         )
         return {
