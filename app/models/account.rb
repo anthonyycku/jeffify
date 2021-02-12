@@ -26,11 +26,12 @@ class Account < ApplicationRecord
             <<-SQL
             INSERT INTO users (username, password)
             VALUES ('#{opts["username"]}','#{opts["password"]}')
+            RETURNING id, username
             SQL
         )
         return {
+            "id"=>results.first["id"]
             "username" => results.first["username"],
-            "password" => results.first["password"]
         }
     end
 
