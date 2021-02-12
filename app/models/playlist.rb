@@ -12,11 +12,13 @@ class Playlist < ApplicationRecord
                 SELECT * FROM playlists
             SQL
         )
-        return {
-            "id" => results.first["id"].to_i,
-            "name" => results.first["name"],
-            "user_id" => results.first["user_id"].to_i
+        return results.map do |result|
+            {
+            "id" => result["id"].to_i,
+            "name" => result["name"],
+            "user_id" => result["user_id"].to_i
         }
+        end
       end
 
       def self.create(opts)
