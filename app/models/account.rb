@@ -30,8 +30,8 @@ class Account < ApplicationRecord
             SQL
         )
         return {
-            "id"=>results.first["id"]
-            "username" => results.first["username"],
+            "id"=>results.first["id"],
+            "username" => results.first["username"]
         }
     end
 
