@@ -10,7 +10,7 @@ class Playlist
         results = DB.exec(
             <<-SQL
                 INSERT INTO playlists (name, user_id)
-                VALUES ('#opts["name"]', #opts["user_id"])
+                VALUES ('#{opts["name"]}', #{opts["user_id"]})
                 RETURNING id, name, user_id
             SQL
         )
