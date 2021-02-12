@@ -14,6 +14,7 @@ class Account < ApplicationRecord
         )
         return results.map do |result|
             {
+                "id"=> result["id"],
                 "username" => result["username"],
                 "password" => result["password"]
             }
