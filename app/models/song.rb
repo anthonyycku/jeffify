@@ -32,6 +32,7 @@ class Song < ApplicationRecord
         results = DB.exec(
           <<-SQL
           SELECT
+          songs.id as "songID",
           songs.name as "songName",
           songs.audio,
           albums.name as "albumName",
@@ -47,6 +48,7 @@ class Song < ApplicationRecord
         )
         return results.map do |result|
           {
+            "id" => result["songID"].to_i,
             "song" => result["songName"],
             "audio"=>result["audio"],
             "album" => result["albumName"],
@@ -60,6 +62,7 @@ class Song < ApplicationRecord
         results = DB.exec(
           <<-SQL
           SELECT
+          songs.id as "songID",
           songs.name as "songName",
           songs.audio as "songAudio",
           albums.name as "albumName",
@@ -72,6 +75,7 @@ class Song < ApplicationRecord
         )
         return results.map do |result|
           {
+            "id" => result["songID"].to_i,
             "song" => result["songName"],
             "audio" => result["songAudio"],
             "album" => result["albumName"],
