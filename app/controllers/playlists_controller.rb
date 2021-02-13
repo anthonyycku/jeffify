@@ -12,8 +12,8 @@ class PlaylistsController < ApplicationController
         render json: Playlist.specific(params["id"])
     end
 
-    def add
-        render json: Playlist.add(params["playlist"])
+    def addtoplaylist
+        render json: Playlist.addtoplaylist(params["playlist"])
     end
     
 end 
