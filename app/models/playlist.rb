@@ -59,6 +59,8 @@ class Playlist < ApplicationRecord
       end
 
       def self.addtoplaylist(opts)
+        puts opts["songID"]
+        puts opts["playlistID"]
         results=DB.exec(
             <<-SQL
             INSERT INTO userplaylists (song_id, playlist_id)
