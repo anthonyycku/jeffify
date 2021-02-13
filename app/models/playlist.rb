@@ -72,4 +72,13 @@ class Playlist < ApplicationRecord
             "playlist_id" => results.first["playlist_id"].to_i
         }
       end
+
+      def self.delete(id)
+        results=DB.exec(
+            <<-SQL
+            DELETE FROM playlists
+            WHERE id=#{id}
+            SQL
+        )
+      end
 end

@@ -28,5 +28,6 @@ Rails.application.routes.draw do
 
   #Add to intermediary
   post '/addtoplaylist/:songID/:playlistID', to:'playlists#addtoplaylist'
+  delete '/deleteplaylist/:id', to:'playlists#delete'
 
 end

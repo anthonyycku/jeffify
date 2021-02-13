@@ -15,5 +15,9 @@ class PlaylistsController < ApplicationController
     def addtoplaylist
         render json: Playlist.addtoplaylist(params["songID"], params["playlistID"])
     end
+
+    def delete
+        render json: Playlist.delete(params["id"])
+    end
     
 end 
