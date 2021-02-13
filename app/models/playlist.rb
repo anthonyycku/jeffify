@@ -81,4 +81,34 @@ class Playlist < ApplicationRecord
             SQL
         )
       end
+
+      def playlistsongs(id)
+        result=DB.exec(
+            <<-SQL
+            SELECT
+            songs.id as "songID",
+            songs.name as "songName",
+            songs.audio as "songAudio",
+            albums.name as "albumName",
+            albums.image as "albumImage",
+            artists.name as "artistName"
+            FROM userplaylists
+            LEFT JOIN songs ON userplaylists.song_id=songs.id
+            LEFT JOIN playlists ON userplaylists.playlist_id=playlists.id
+            LEFT JOIN albums ON songs.album_id=albums.id
+            LEFT JOIN artists ON songs.artist_id=artists.id
+            WHERE playlists.id=#{id}
+            SQL
+        )
+        return results.map do |result|
+            {
+                "id" => result["songID"].to_i,
+                "song" => result["songName"],
+                "audio"=> result["songAudio"],
+                "album" => result["albumName"],
+                "image" => result["albumImage"],
+                "artist" => result["artistName"]
+            }
+        end
+      end
 end

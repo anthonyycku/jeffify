@@ -19,5 +19,9 @@ class PlaylistsController < ApplicationController
     def delete
         render json: Playlist.delete(params["id"])
     end
+
+    def playlistsongs
+        render json: Playlist.playlistsongs(params["id"])
+    end
     
 end 
