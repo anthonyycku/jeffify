@@ -63,7 +63,12 @@ class Playlist < ApplicationRecord
             <<-SQL
                 INSERT INTO userplaylists (song_id, playlist_id)
                 VALUES (#{opts["song_id"]}, #{opts["playlist_id"]})
+                RETURNING song_id, playlist_id
             SQL
         )
+        return {
+            "song_id" = results.first["song_id"].to_i,
+            "playlist_id" = results.first["playlist_id"].to_i
+        }
       end
 end
