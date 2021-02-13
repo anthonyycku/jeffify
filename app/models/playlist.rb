@@ -115,7 +115,7 @@ class Playlist < ApplicationRecord
       def self.deletefromplaylist(id)
         results = DB.exec(
           <<-SQL
-            DELETE FROM userplayerlists
+            DELETE FROM userplaylists
             WHERE id=#{id}
           SQL
         )
