@@ -83,7 +83,7 @@ class Playlist < ApplicationRecord
       end
 
       def playlistsongs(id)
-        result=DB.exec(
+        results=DB.exec(
             <<-SQL
             SELECT
             songs.id as "songID",
