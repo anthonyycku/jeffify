@@ -5,7 +5,7 @@ class PlaylistsController < ApplicationController
     end
 
     def index
-        render json: Playlist.index
+        render json: Playlist.index(params["id"])
     end
 
     def specific

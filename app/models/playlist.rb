@@ -6,19 +6,17 @@ class Playlist < ApplicationRecord
         DB = PG.connect(host: "localhost", port: 5432, dbname: 'jeffify_development')
       end
 
-      def self.index
+      def self.index(id)
         results = DB.exec(
             <<-SQL
                 SELECT * FROM playlists
+                WHERE id=#{id}
             SQL
         )
-        return results.map do |result|
-            {
+        return {
             "id" => result["id"].to_i,
-            "name" => result["name"],
-            "user_id" => result["user_id"].to_i
+            "name" => result["name"]
         }
-        end
       end
 
       def self.create(opts)
