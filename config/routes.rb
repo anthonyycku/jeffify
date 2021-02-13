@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   get '/user_playlists/:id', to:'playlists#specific'
 
   #Add to intermediary
-  post '/addtoplaylist', to:'playlists#addtoplaylist'
+  post '/addtoplaylist/:songID/:playlistID', to:'playlists#addtoplaylist'
 
 end
