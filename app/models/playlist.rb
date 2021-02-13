@@ -82,7 +82,7 @@ class Playlist < ApplicationRecord
         )
       end
 
-      def playlistsongs(id)
+      def self.playlistsongs(id)
         results=DB.exec(
             <<-SQL
             SELECT
