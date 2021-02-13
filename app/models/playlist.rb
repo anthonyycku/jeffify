@@ -67,8 +67,8 @@ class Playlist < ApplicationRecord
             SQL
         )
         return {
-            "song_id" = results.first["song_id"].to_i,
-            "playlist_id" = results.first["playlist_id"].to_i
+            "song_id" => results.first["song_id"].to_i,
+            "playlist_id" => results.first["playlist_id"].to_i
         }
       end
 end
