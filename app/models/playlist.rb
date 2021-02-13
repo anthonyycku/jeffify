@@ -14,8 +14,8 @@ class Playlist < ApplicationRecord
             SQL
         )
         return {
-            "id" => result["id"].to_i,
-            "name" => result["name"]
+            "id" => results.first["id"].to_i,
+            "name" => results.first["name"]
         }
       end
 
