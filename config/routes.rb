@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   delete '/deleteplaylist/:id', to:'playlists#delete'
   get '/playlistsongs/:id', to:'playlists#playlistsongs'
 
+  #delete joined song
+  delete 'deletefromplaylist', to:'playlists#deletefromplaylist'
+
 end

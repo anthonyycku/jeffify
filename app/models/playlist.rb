@@ -84,6 +84,7 @@ class Playlist < ApplicationRecord
         results=DB.exec(
             <<-SQL
             SELECT
+            userplaylists.id as "songplaylistID",
             songs.id as "songID",
             songs.name as "songName",
             songs.audio as "songAudio",
@@ -100,6 +101,7 @@ class Playlist < ApplicationRecord
         )
         return results.map do |result|
             {
+                "songplaylistID" => result["songplaylistID"].to_i,
                 "id" => result["songID"].to_i,
                 "song" => result["songName"],
                 "audio"=> result["songAudio"],
@@ -108,5 +110,14 @@ class Playlist < ApplicationRecord
                 "artist" => result["artistName"]
             }
         end
+      end
+
+      def self.deletefromplaylist(id)
+        results = DB.exec(
+          <<-SQL
+            DELETE FROM userplayerlists
+            WHERE id=#{id}
+          SQL
+        )
       end
 end
