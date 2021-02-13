@@ -34,4 +34,7 @@ Rails.application.routes.draw do
   #delete joined song
   delete 'deletefromplaylist/:id', to:'playlists#deletefromplaylist'
 
+  #get album pics for playlists
+  get '/getplaylistpics/:id', to: 'playlists#getPlaylistPics'
+
 end

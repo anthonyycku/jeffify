@@ -27,5 +27,9 @@ class PlaylistsController < ApplicationController
     def deletefromplaylist
         render json: Playlist.deletefromplaylist(params["id"])
     end
+
+    def getPlaylistPics
+        render json: Playlist.getPlaylistPics(params["id"])
+    end
     
 end 

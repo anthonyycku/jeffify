@@ -56,6 +56,28 @@ class Playlist < ApplicationRecord
         end
       end
 
+      def self.getPlaylistPics(id)
+        results = DB.exec(
+            <<-SQL
+                SELECT
+                userplaylists.playlist_id as "playlistID",
+                albums.image as "image"
+                FROM albums
+                LEFT JOIN songs on albums.id=songs.album_id
+                LEFT JOIN userplaylists on song_id=songs.id
+                LEFT JOIN playlists on playlist_id=playlists.id
+                LEFT JOIN users on playlists.user_id=users.id
+                WHERE users.id=#{id}
+            SQL
+        )
+        return results.map do |result|
+            {
+                "id" => result["playlistID"],
+                "image" => result["image"]
+            }
+        end
+      end
+
       def self.addtoplaylist(songID, playlistID)
         results=DB.exec(
             <<-SQL
