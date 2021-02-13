@@ -62,7 +62,7 @@ class Playlist < ApplicationRecord
         results=DB.exec(
             <<-SQL
             INSERT INTO userplaylists (song_id, playlist_id)
-            VALUES (10, 10)
+            VALUES (#{opts["songID"]}, #{opts["playlistID"]})
             RETURNING id, song_id, playlist_id
             SQL
         )
