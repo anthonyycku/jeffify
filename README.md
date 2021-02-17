@@ -10,15 +10,17 @@ The application is built upon a many-to-many relational database to allow connec
 
 ### How it works
 
-Users can choose to play entire albums by clicking on the album picture, or can play individual songs from within an album, search, or artist page. Users can also add songs to the queue if they wish to listen to it later.
+Users can:
 
-Users can signup/login to access the playlist features, allowing users to create personal playlists and add individual songs to them.
+- Choose to play entire albums by clicking on the album picture, or can play individual songs from within an album, search, or artist page. Users can also add songs to the queue if they wish to listen to it later.
 
-Users can visit artist's page by clicking on the artist name either under the album name or inside an album. Artist's page will include all songs and albums by the artist, which the user can access.
+- Signup/login to access the playlist features, allowing users to create personal playlists and add individual songs to them.
 
-Users can search for all songs, albums, and artists that exist in the database
+- Visit artist's page by clicking on the artist name either under the album name or inside an album. Artist's page will include all songs and albums by the artist, which the user can access.
 
-Users can interact with the audio control just like any other music player out there!
+- Search for all songs, albums, and artists that exist in the database
+
+- Interact with the audio control just like any other music player out there!
 
 ### Technical Stack:
 
